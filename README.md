@@ -4,6 +4,12 @@
 
 **Deception** lures the attacker back into a controlled environment. **SIEM** (Security Information and Event Management) collects, forwards, and centralizes all security events in real-time to a secure receiver for analysis and forensics.
 
+The framework is built on three principles:
+
+1. **Active Deception** — Re-enable password auth and plant decoy credentials to lure the attacker back in
+2. **Kernel-Level Auditing** — Capture every action via Falco eBPF + auditd at the kernel level; the attacker cannot detect or bypass this layer
+3. **Secure Log Forwarding** — Stream all audit data in real-time to a receiver the attacker has no knowledge of; even if the attacker wipes every log on the honeypot, the evidence is already safe
+
 A production-tested intrusion forensics framework that lures attackers into a honeypot, records every action at the kernel level, and exfiltrates logs in real-time to a secure receiver the attacker cannot reach.
 
 ## Background
