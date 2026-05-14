@@ -1,0 +1,26 @@
+# Auditd rules for breach-trace
+# Records all command executions, file accesses, and privilege changes
+
+# Record all command executions
+-a always,exit -F arch=b64 -S execve -k exec_cmd
+-a always,exit -F arch=b32 -S execve -k exec_cmd
+
+# Record login events
+-w /var/log/wtmp -p wa -k login_event
+-w /var/log/btmp -p wa -k login_fail
+-w /var/run/utmp -p wa -k login_event
+
+# Record /root directory access
+-w /root -p rwxa -k root_access
+
+# Record SSH config changes
+-w /etc/ssh -p rwxa -k ssh_config
+
+# Record crontab changes
+-w /etc/cron.d -p rwxa -k cron_change
+-w /var/spool/cron -p rwxa -k cron_change
+
+# Record user account changes
+-w /etc/passwd -p rwxa -k user_change
+-w /etc/shadow -p rwxa -k user_change
+-w /etc/sudoers -p rwxa -k sudo_change

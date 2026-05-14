@@ -1,0 +1,12 @@
+[Unit]
+Description=breach-trace inotify monitor
+After=network.target
+
+[Service]
+Type=forking
+ExecStart=/usr/local/bin/honeypot-inotify.sh
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

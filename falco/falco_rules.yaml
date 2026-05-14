@@ -1,0 +1,8 @@
+- rule: SSH login success
+  desc: Successful SSH authentication - attacker shell spawned
+  condition: >
+    evt.type=execve and proc.name in (bash, sh) and
+    proc.pname=sshd
+  output: "SSH login success user=%user.name src=%fd.rip"
+  priority: WARNING
+  tags: [host]
