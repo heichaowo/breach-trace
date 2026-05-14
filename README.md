@@ -1,6 +1,8 @@
 # breach-trace
 
-> Active Deception + Kernel-Level Forensic Auditing with Secure Log Forwarding
+> A lightweight **Deception + SIEM** framework for intrusion forensics
+
+**Deception** lures the attacker back into a controlled environment. **SIEM** (Security Information and Event Management) collects, forwards, and centralizes all security events in real-time to a secure receiver for analysis and forensics.
 
 A production-tested intrusion forensics framework that lures attackers into a honeypot, records every action at the kernel level, and exfiltrates logs in real-time to a secure receiver the attacker cannot reach.
 
